@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:3.1.426-alpine3.16 AS build
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /source
 
 # Copy everything
@@ -11,7 +11,7 @@ WORKDIR /source/app
 RUN dotnet publish -c Release -o /app
 
 # Build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:3.1.32-alpine3.16
+FROM mcr.microsoft.com/dotnet/aspnet:3.1
 WORKDIR /app
 EXPOSE 80
 COPY --from=build /app /.
