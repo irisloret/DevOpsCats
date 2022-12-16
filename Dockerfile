@@ -14,6 +14,6 @@ RUN dotnet publish -c Release -o /app
 FROM mcr.microsoft.com/dotnet/aspnet:3.1.32-alpine3.16
 WORKDIR /app
 EXPOSE 80
-COPY --from=build /app /. .
+COPY --from=build /app /.
 ENTRYPOINT ["dotnet", "catsProject.dll"]
 
