@@ -1,0 +1,23 @@
+@using Contentful.Core.Models
+@model ContentfulCollection<Toy>
+
+@{
+    ViewData["Title"] = "Cat Toys";
+}
+
+<h1 class="mb-4">Different Cat Toys</h1>
+<div class="row">
+    @foreach (var toy in Model){
+        <div class="col-xs-12 col-sm-6 col-md-4 mb-4">
+            <div class="rounded p-2" style="border: 1.5px black solid; box-shadow: 2px 2px 10px;">
+                <h3>@toy.NameToy</h3>
+                <img class="img-fluid" src="@toy.ToyImage.File.Url" alt="@toy.ToyImage.Title">
+                <p style="text-align: justify;">@toy.DescriptionToy</p>
+                <p class="badge badge-dark p-2" style="font-size: 1.1rem;">Price: €@toy.Price</p>
+            </div>
+    </div>
+    }
+</div>
+
+
+

@@ -1,0 +1,36 @@
+@using Contentful.Core.Models
+@model ContentfulCollection<Bed>
+
+@{
+    ViewData["Title"] = "Cat Beds";
+}
+
+<h1 class="mb-4">Comfortable Cat Beds</h1>
+
+    @foreach (var bed in Model){
+        <div class="container  mb-3">
+            <div class="row align-items-center h-100 rounded p-3 m-2 mb-4" style="background-color: lightgrey; box-shadow: 2px 2px 8px;">
+                <div class="col-12">
+                <h3>@bed.NameBed</h3></div>
+                <div class="col-7 col-md-4 col-lg-3">
+                    
+                    <img src="@bed.ImageBed.File.Url" alt="@bed.ImageBed.Title" width="200px" class="border border-dark rounded">
+                </div>
+                <div class="col-5 col-md-5 col-lg-6 pr-2">
+                    <p style="text-align: justify;">@bed.Description</p>
+                </div>
+                <div class="col-3">
+                    @if (@bed.BigCat)
+                    {
+                        <p>This could be used for large cats.</p>
+                    } else {
+                        <p>This is better not used for large cats.</p>
+                    }
+                    <p class="badge badge-dark p-2" style="font-size: 1.1rem; ">Price: €@bed.Price</p>
+                </div>
+            </div>    
+        </div>
+    }
+
+
+

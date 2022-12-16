@@ -1,0 +1,41 @@
+@using Contentful.Core.Models
+@model ContentfulCollection<Food>
+
+@{
+    ViewData["Title"] = "Cat Food";
+}
+
+<h1 class="mb-4">Tasty Cat Food</h1>
+
+@foreach (var food in Model)
+{
+    <div class="container mb-4 mt-5">
+        <div class="row  align-items-center">
+            <h3 class="col-12">
+                @food.Title - <span style="font-size: 1.3rem">@food.Category</span>
+            </h3>
+            <div class="col-8" style="text-align: justify;">
+                @food.Description
+            </div>
+    <div class="col-4">
+        <div>
+            <img src="@food.RatingImage.File.Url" alt="@food.RatingImage.Title" height="30px">
+        </div>
+        <div>
+            <img src="@food.ImageFood.File.Url" alt="@food.ImageFood.Title" height="200px">
+        </div>
+        
+    </div>
+    <div class="col-4" style="font-weight: bold;">
+        Price: €@food.Price for @food.Gram g
+    </div>
+        @if (@food.Kitten)
+        {
+             <div class="col-7">Kittens can enjoy this aswell.</div>
+        } else {
+            <div class="col-7">This is only for adult cats.</div>
+        }
+        </div>
+    </div>
+    <hr>
+}
