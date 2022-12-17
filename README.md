@@ -1,0 +1,1 @@
+When you download this repo and execute the command 'docker compose up' in it, it will start the container with the image that is placed on docker hub through github actions. If you go then to 'localhost:8080' you will see a page about cats which is made with contentful and dotnet version 3.1. 
