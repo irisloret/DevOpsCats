@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /app
 
-# Copy everything
+# Copy project
 COPY app/*.csproj ./
 # Restore as distinct layers
 RUN dotnet restore
